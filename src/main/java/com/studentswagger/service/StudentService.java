@@ -47,19 +47,22 @@ public class StudentService {
 	// METHOD 4
 	// RETRIVE LIST OF STUDENT WITH SAME DOMAIN
 	public List<Students> getStudentByDomain(String stDomain) throws GlobalException {
-		if (stdRepo.findByStDomain(stDomain) != null)
-			return stdRepo.findByStDomain(stDomain);
-		else
+
+		if (stdRepo.findByStDomain(stDomain).isEmpty())
 			throw new GlobalException("User Not Found with " + stDomain);
+		else
+			return stdRepo.findByStDomain(stDomain);
 	}
 
 	// METHOD 5
 	// RETRIVE LIST OF STUDENT OF SAME AGE
 	public List<Students> getStudentByAge(int stAge) throws GlobalException {
-		if (stdRepo.findByStAge(stAge) != null)
-			return stdRepo.findByStAge(stAge);
-		else
+
+		if (stdRepo.findByStAge(stAge).isEmpty())
 			throw new GlobalException("User Not Found with " + stAge);
+		else
+			return stdRepo.findByStAge(stAge);
+
 	}
 
 	// METHOD 6
